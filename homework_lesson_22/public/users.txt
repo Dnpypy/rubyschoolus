@@ -2,3 +2,5 @@ login: admin, pass: , phone: 121284781, datetime: 2019-10-06
 login: admin, pass: , phone: 121284781, datetime: 2019-10-06
 login: AYYY, pass: sdg@sdg.ru, phone: 129471927491724, datetime: 2019-10-24
 login: Yasmina, mail: sdg@sdg.ru, phone: sdgsdgsdg, datetime: 2019-10-29
+barber: Walter White, login: admin, mail: sdg@sdg.ru, phone: 121284781, datetime: 2019-10-31
+barber: Gus Fring, login: Miladin, mail: sdg@sdg.ru, phone: 121284781, datetime: 2019-10-20

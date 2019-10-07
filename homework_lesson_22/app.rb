@@ -17,6 +17,7 @@ end
 
 post "/visit" do
 	
+	@barber   = params[:barber]
 	@login    = params[:login]
 	@mail     = params[:mail]
 	@phone    = params[:phone]
@@ -39,7 +40,7 @@ post "/visit" do
 		erb :visit
 	
 	else
-		@message = "login: #{@login}, mail: #{@mail}, phone: #{@phone}, datetime: #{@datetime}"
+		@message = "barber: #{@barber}, login: #{@login}, mail: #{@mail}, phone: #{@phone}, datetime: #{@datetime}"
 
 		File.open("./public/users.txt", "a") do |file|
 			file.puts @message
@@ -52,6 +53,28 @@ post "/visit" do
 end
 
 get "/contacts" do
+	erb :contacts
+end
+
+post "/contacts" do
+	
+	@mail     = params[:mail]
+	@message  = params[:message]
+
+	if @mail == "" 
+		@check_mail = "Введите почту!" 
+		erb :contacts
+
+	else
+		@input_mail    = "mail: #{@mail}"
+		@text_message  = "text_message: #{@message}"
+
+		File.open("./public/contacts.txt", "a") do |file|
+			file.puts @input_mail
+			file.puts @text_message
+		end
+	end
+
 	erb :contacts
 end
 

@@ -1,3 +1,36 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
 <h2>Контакты</h2>
-<p>Телефоны: </p>
+
+
+<form action="/contacts" method="POST">
+
+
+	  <div class="form-group" >
+	    
+	    <label >Почта</label>
+	    <p><%= @check_mail %></p>
+	    <input name="mail" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Введите почту" >
+	  
+	  </div>
+
+	  <label >Сообщение: </label>
+
+	  <div>
+		  <textarea name="message" placeholder="  Введите свое сообщение"
+		  name="content" cols="40" rows="4" maxlength="1000"></textarea>
+
+		  <button type="submit" class="btn btn-primary">Написать сообщение</button>
+	   </div>
+
+	</form>
+
+</body>
+</html>
+
