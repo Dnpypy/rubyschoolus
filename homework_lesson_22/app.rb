@@ -7,7 +7,6 @@ get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>!!!"			
 end
 
-# обработчик запроса get
 get "/about" do
 	erb :about
 end
@@ -18,35 +17,41 @@ end
 
 post "/visit" do
 	
-	@login = params[:login]
-	@mail = params[:mail]
-	@phone = params[:phone]
+	@login    = params[:login]
+	@mail     = params[:mail]
+	@phone    = params[:phone]
 	@datetime = params[:datetime]
 
-	@x = @login.class
-	@message = "login: #{@login}, pass: #{@mail}, phone: #{@phone}, datetime: #{@datetime}"
-
-	File.open("./public/users.txt", "a") do |file|
-		file.puts @message
-	end
-
 	if @login == ""
-		@user = "Введите пользователя!" 
+		@check_user = "Введите пользователя!" 
 		erb :visit
-	elsif @mail == ""
-		@mail = "Введите почту!" 
+	
+	elsif @mail == "" 
+		@check_mail = "Введите почту!" 
 		erb :visit
+	
 	elsif @phone == ""
-		@phone = "Введите телефон!" 
+		@check_phone = "Введите телефон!" 
 		erb :visit
+	
+	elsif @datetime == ""
+		@check_date = "Введиту дату прибытия!" 
+		erb :visit
+	
 	else
+		@message = "login: #{@login}, mail: #{@mail}, phone: #{@phone}, datetime: #{@datetime}"
+
+		File.open("./public/users.txt", "a") do |file|
+			file.puts @message
+		end
+
 		@welcome = "Вы успешно записались!"
 		erb :complete
 	end
+
 end
 
 get "/contacts" do
 	erb :contacts
 end
-
 
