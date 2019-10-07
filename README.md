@@ -1,4 +1,4 @@
-# Rubyschoolus
+# Rubyschool.us
 
 Practice course Ruby, Sinatra, RoR.
 
