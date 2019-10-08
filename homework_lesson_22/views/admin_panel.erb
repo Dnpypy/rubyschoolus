@@ -7,6 +7,14 @@
 
 <h1>Админ панель</h1>
 
+<table class="table table-striped text-center ">
+
+		<tr><td>Welcome!</td></tr>
+		<% @logfile.each do |line| %>
+	  	<tr><td><%= line %></td></tr>
+			<% end %>
+
+</table>
 
 
 </body>

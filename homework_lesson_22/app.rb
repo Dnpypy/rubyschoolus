@@ -88,8 +88,12 @@ post "/admin" do
 	@password   = params[:password]
 
 	if @user_admin == "admin" && @password == "secret"  
-		# @check_admin = "Вы вошли в панель управления!" 
-		erb :admin_panel #?
+		
+		File.open("./public/users.txt", "r") do |file|
+			@logfile = file.readlines
+		end
+
+		erb :admin_panel 
 	
 	elsif @user_admin == "admin" && @password == "admin"  
 		@check_admin = "Нет не тот логин и пароль!" 
