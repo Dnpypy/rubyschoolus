@@ -1,5 +1,5 @@
 
-git clone https://github.com/rubyschool-us/sinatra-bootstrap-clean
+git clone https://github.com/rubyschool-us/sinatra-bootstrap-clean.git
 
 Урок 22
 
