@@ -4,11 +4,11 @@
 	<title></title>
 </head>
 <body>
-<h2>Записаться</h2>
-<p>На этой странице вы можете записаться в Barbershop</p>
 
-	<form action="/visit" method="POST">
 
+<form class="text-center" action="/visit" method="POST">
+	<h2>Записаться</h2>
+	<p>На этой странице вы можете записаться в Barbershop</p>
 
 	<div class="form-group">
 		
@@ -19,33 +19,33 @@
   			<option>Jessie Pinkman</option>
   			<option>Gus Fring</option><br />
 		</select>
-
+		<br>
 		<br />
-		
+		<br>
 	    <label >Пользователь</label>
 	    <p><%= @check_user %></p>
-	    <input name="login" type="text" class="form-control" placeholder="Введите имя пользователя">
+	    <input name="login" type="text" class="form-control center-block" placeholder="Введите имя пользователя">
 	</div>
 	  	
 	  <div class="form-group" >
 	    <label >Почта</label>
 	    <p><%= @check_mail %></p>
-	    <input name="mail" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Введите почту" >
+	    <input name="mail" type="email" class="form-control center-block"  aria-describedby="emailHelp" placeholder="Введите почту" >
 	  </div>
 
 	<div class="form-group" >
 	    <label >Телефон</label>
 	    <p><%= @check_phone %></p>
-	    <input name="phone" type="text" class="form-control" placeholder="Введите телефон" >
+	    <input name="phone" type="text" class="form-control center-block" placeholder="Введите телефон" >
 	</div>
 	
 	<div class="form-group" >
 	    <label >Когда Вас ждать?</label>
 	    <p><%= @check_date %></p>
-	    <input name="datetime" type="date" class="form-control" placeholder="Введите дату и время" >
+	    <input name="datetime" type="date" class="form-control center-block" placeholder="Введите дату и время" >
 	</div>
 	  
-	  <button type="submit" class="btn btn-primary">Записаться</button>
+	  <button type="submit" class="btn btn-success">Записаться</button>
 
 	</form>
 

@@ -6,17 +6,17 @@
 </head>
 <body>
 
-<h2>Контакты</h2>
 
 
-<form action="/contacts" method="POST">
 
+<form class="text-center" action="/contacts" method="POST">
+	<h2>Контакты</h2>
 
 	  <div class="form-group" >
 	    
 	    <label >Почта</label>
 	    <p><%= @check_mail %></p>
-	    <input name="mail" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Введите почту" >
+	    <input name="mail" type="email" class="form-control center-block"  aria-describedby="emailHelp" placeholder="Введите почту" >
 	  
 	  </div>
 
@@ -27,7 +27,7 @@
 		  name="content" cols="40" rows="4" maxlength="1000"></textarea>
 		  <br>
 		  <br>
-		  <button type="submit" class="btn btn-primary">Написать сообщение</button>
+		  <button type="submit" class="btn btn-warning">Написать сообщение</button>
 	   </div>
 
 	</form>

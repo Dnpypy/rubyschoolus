@@ -30,6 +30,7 @@ git clone https://github.com/rubyschool-us/sinatra-bootstrap-clean.git
 2. Чтобы все формы(form) были по центру в /visit, /contacts, /admin.
 3. Чтобы у кнопок были разные цвета в /visit - зеленая, /contacts - желтая, /admin - голубая.
 4. Добавить условие на пустые строки, если введеная пустая строка то какое-то условие. 
-5. Создать admin.erb с формой, сделать обработчик get/post admin.erb. 
+5. Создать admin.erb с формой, сделать обработчик get/post admin.erb, условие на переход из admin->admin_panel. 
 6. Создать файл admin_panel.erb и сделать обработчик get запросов.
-7. В admin_panel.erb сделать вывод через цикл each всех юзеров в таблице bootstrap. 
+7. В admin_panel.erb сделать вывод через цикл each всех юзеров в таблице bootstrap.
+ 
