@@ -78,3 +78,26 @@ post "/contacts" do
 	erb :contacts
 end
 
+get "/admin" do
+	erb :admin
+end
+
+post "/admin" do
+
+	@user_admin = params[:user_admin]
+	@password   = params[:password]
+
+	if @user_admin == "admin" && @password == "secret"  
+		# @check_admin = "Вы вошли в панель управления!" 
+		erb :admin_panel #?
+	
+	elsif @user_admin == "admin" && @password == "admin"  
+		@check_admin = "Нет не тот логин и пароль!" 
+		erb :admin
+	
+	end
+end
+
+get "/admin_panel" do
+	erb :admin_panel
+end
