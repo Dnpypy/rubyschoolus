@@ -22,3 +22,7 @@ text_message: Hello!!!!!
 8.10.2019 5:21;asfasf;asfasfasf
 8.10.2019 5:22;FGFGFGFG;sdklgjskjdgksgd
 Denis;8.10.2019 5:22;HELOOOOOOOO
+mail: sdg@sdgsdg.ru
+text_message: sdgsgd
+mail: sdg@sdgsdg.ru
+text_message: sdgsgd

@@ -1,17 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 
-get "/about" do
-	erb :about
-end
-
-post "/about" do
-	@hello = "Привествую!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	erb "<div class='alert alert-message'>Привествую!!!!</div>"
-
-	erb :about
-end
-
 configure do
   enable :sessions
 end
@@ -31,6 +20,7 @@ before '/secure/*' do
 end
 
 get '/' do
+	@hello = "Привествую!!!!!!!!!!!!!!!!!!!!!!!!!!"
   erb 'Can you handle a <a href="/secure/place">secret</a>?'
 end
 
@@ -53,3 +43,28 @@ get '/secure/place' do
   erb 'This is a secret place that only <%=session[:identity]%> has access to!'
 end
 
+get "/about" do
+  @gg = "Чтото передаем..."
+  erb :about
+end
+
+get "/contacts" do
+  @gg = "Чтото передаем в контакты..."
+  erb :contacts
+end
+
+# get '/visits' do
+#   "Hello World"
+#   # erb :visits
+# end
+
+get "/visits" do
+  "Чтото передаем в visits..."
+  # "Hello world!!!!"
+  # "123123123!!!!"
+  # erb :visits
+end
+
+# post "/about" do
+  
+# end

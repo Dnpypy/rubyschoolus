@@ -105,3 +105,20 @@ end
 get "/admin_panel" do
 	erb :admin_panel
 end
+
+
+get "/about2" do
+	@hello = "Привествую!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	@check_check = "Проверка!!!!"
+	@check_check_1 = "Проверка2222!!!!"
+	erb :about2
+end
+
+post "/about2" do
+	# @hello = "Привествую!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	# @check_check = "Проверка!!!!"
+
+	erb :about2
+end
+
+

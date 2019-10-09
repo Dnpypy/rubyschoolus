@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
+  		
+
 		<div class="container">
 
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,6 +28,14 @@
 
 						<li class="nav-item active">
 							<a class="nav-link" href="/about">about <span class="sr-only">(current)</span></a>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="/contacts">contacts <span class="sr-only">(current)</span></a>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="/visits">visits <span class="sr-only">(current)</span></a>
 						</li>
 
 
@@ -49,7 +59,7 @@
 				<% end %>
 				<%= yield %>
 			</div>
-
+			<h1><%= @hello %></h1>
 		</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
