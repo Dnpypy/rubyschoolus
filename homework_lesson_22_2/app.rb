@@ -33,7 +33,7 @@ get '/login/form' do
 end
 
 post '/login/attempt' do
-  session[:identity] = params['username']
+  session[:identity] = params['mail']
   where_user_came_from = session[:previous_url] || '/'
   redirect to where_user_came_from
 end
