@@ -1,0 +1,21 @@
+Resolving dependencies...
+Fetching gem metadata from https://rubygems.org/..........
+Resolving dependencies...
+Bundler could not find compatible versions for gem "sinatra-contrib":
+  In Gemfile:
+    sinatra x64-mingw32 was resolved to 2.0.0, which depends on
+      sinatra-reloader (~> 1.0) was resolved to 1.0, which depends on
+        sinatra-contrib x64-mingw32
+
+Could not find gem 'sinatra-contrib', which is required by gem 'sinatra-reloader
+(~> 1.0)', in any of the sources.
+Resolving dependencies...
+Fetching gem metadata from https://rubygems.org/..........
+Resolving dependencies...
+Bundler could not find compatible versions for gem "sinatra-contrib":
+  In Gemfile:
+    sinatra x64-mingw32 was resolved to 2.0.0, which depends on
+      sinatra-contrib x64-mingw32
+
+Could not find gem 'sinatra-contrib', which is required by gem 'sinatra', in any
+of the sources.

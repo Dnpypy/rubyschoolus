@@ -1,0 +1,8 @@
+Using bundler 1.17.3
+Using mustermann 1.0.1
+Using rack 2.0.3
+Using rack-protection 2.0.0
+Using tilt 2.0.8
+Using sinatra 2.0.0
+Bundle complete! 1 Gemfile dependency, 6 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.

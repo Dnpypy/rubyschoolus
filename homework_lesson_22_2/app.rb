@@ -1,5 +1,9 @@
+
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader'
+# require "bundler/setup"
+# require 'sinatra/contrib'
 
 configure do
   enable :sessions
@@ -53,18 +57,7 @@ get "/contacts" do
   erb :contacts
 end
 
-# get '/visits' do
-#   "Hello World"
-#   # erb :visits
-# end
-
 get "/visits" do
-  "Чтото передаем в visits..."
-  # "Hello world!!!!"
-  # "123123123!!!!"
-  # erb :visits
+  erb :visits
 end
 
-# post "/about" do
-  
-# end

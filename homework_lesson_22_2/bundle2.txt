@@ -1,0 +1,11 @@
+Using backports 3.15.0
+Using bundler 1.17.3
+Using multi_json 1.13.1
+Using mustermann 1.0.3
+Using rack 2.0.7
+Using rack-protection 2.0.7
+Using tilt 2.0.10
+Using sinatra 2.0.7
+Using sinatra-contrib 2.0.7
+Bundle complete! 2 Gemfile dependencies, 9 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
