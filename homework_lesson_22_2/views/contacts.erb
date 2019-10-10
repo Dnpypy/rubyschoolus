@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,8 +8,38 @@
 
 <body>
 
-<h1><%= @gg %></h1>
 
+<form action="/contacts" method="POST">
+			  
+	   <div class="form-group">
+
+	   	<select name="barber">
+	   		<option>Walter White</option> 
+			<option>Jessie Pinkman</option>
+	   		<option>Gus Fring</option>
+	   	</select>
+	   	<br>
+	   	<br>
+	   	<label >Почта</label>
+		
+		
+  		<%= @check_mail %>
+		
+	    
+	    <input name="mail" type="email" class="form-control" placeholder="Введите почту">
+	    <small id="emailHelp" class="form-text text-muted">Мы никогда не передадим вашу электронную почту кому-либо еще.</small>
+	  </div>
+
+        <label >Сообщение: </label>
+		<div>
+		  <textarea name="message" placeholder="  Введите свое сообщение"
+		  name="content" cols="40" rows="4" maxlength="1000"></textarea>
+		  <br>
+		  <br>
+		  <button type="submit" class="btn btn-warning">Написать сообщение</button>
+	   </div>
+
+</form>
 </body>
 
 </html>

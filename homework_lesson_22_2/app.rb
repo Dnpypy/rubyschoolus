@@ -1,9 +1,9 @@
+# encoding: utf-8
 
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-# require "bundler/setup"
-# require 'sinatra/contrib'
+
 
 configure do
   enable :sessions
@@ -25,7 +25,7 @@ end
 
 get '/' do
 	@hello = "Привествую!!!!!!!!!!!!!!!!!!!!!!!!!!"
-  erb 'Can you handle a <a href="/secure/place">secret</a>?'
+  	erb 'Can you handle a <a href="/secure/place">secret</a>?'
 end
 
 get '/login/form' do
@@ -33,9 +33,20 @@ get '/login/form' do
 end
 
 post '/login/attempt' do
-  session[:identity] = params['mail']
-  where_user_came_from = session[:previous_url] || '/'
-  redirect to where_user_came_from
+
+	@login       = params[:login]
+	@pass        = params[:pass]
+	@phone       = params[:phone]
+	@time_write  = params[:time_write]
+
+	if @login == "admin" && @pass == "123"
+  		
+		session[:identity] = params['login']
+  	end
+
+	where_user_came_from = session[:previous_url] || '/'
+  	redirect to where_user_came_from
+
 end
 
 get '/logout' do
@@ -58,6 +69,61 @@ get "/contacts" do
 end
 
 get "/visits" do
-  erb :visits
+  	erb :visits
 end
 
+post "/visits" do
+
+	File.open("./public/contacts.txt", "r") do |line|  
+		@logfile = line.readlines
+	end
+
+	erb :visits
+
+end
+
+post "/contacts" do
+	
+	@mail    = params[:mail]
+	@message = params[:message]
+	@barber  = params[:barber]
+
+	if @mail == ""
+		@check_mail = "<p class='alert alert-danger' role='alert'>Введите почту</p>"
+	end
+	
+	File.open("./public/contacts.txt", "a") do  |file|
+		file.print "\n@mail: #{@mail}\t" + " @barber: #{@barber}\n" + "@message: #{@message}"
+		file.puts ""
+	end
+
+	erb :contacts
+
+end
+
+get "/admin" do
+	erb :admin
+end
+
+post "/admin" do
+
+	@user_admin = params[:user_admin]
+	@password   = params[:password]
+
+	if @user_admin == "admin" && @password == "secret"  
+		
+		File.open("./public/contacts.txt", "r") do |file|
+			@logfile = file.readlines
+		end
+
+		erb :visits
+	
+	elsif @user_admin == "admin" && @password == "admin"  
+		@check_admin = "Нет не тот логин и пароль!" 
+		erb :admin
+	else
+		erb :admin
+
+	end
+
+end

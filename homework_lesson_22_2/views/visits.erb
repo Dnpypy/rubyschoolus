@@ -4,10 +4,21 @@
 	<title></title>
 </head>
 <body>
-<h1>Записаться!!</h1>
+<h1>Посетители кто был</h1>
+
+<table class="table table-striped  ">
+	<tr class="bg-warning"><td></td></tr>
+	<% @logfile.each do |line| %>
+  	<tr><td><%= line %></td></tr>
+  	
+		<% end %>
+	<tr class="bg-warning"><td></td></tr>
+
+</table>
+
+</table>
 </body>
 </html>
 
 
-<!-- <h1>Привет!</h1> -->
 

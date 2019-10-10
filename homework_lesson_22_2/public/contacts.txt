@@ -1,0 +1,15 @@
+
+@mail: admin@admin.ru	@barber: Walter White
+@message: hello!!!!
+
+@mail: sdgsg@sdgsdg.ru	@barber: Jessie Pinkman
+@message: If what the OP wants is just the text, this is the simplest way to do it. If he wants to incorporate it as part of a page, it will require a view. 
+
+@mail: sdgsg@sdgsdg.ru	@barber: Gus Fring
+@message: If what the OP wants is just the text, this is the simplest way to do it. If he wants to incorporate it as part of a page, it will require a view. 
+
+@mail: admin@admin.ru	 @barber: Walter White
+@message: require 'colorize'
+
+@mail: sdgsg@sdgsdg.ru	 @barber: Jessie Pinkman
+@message: arkThomas Very good point indeed. I did it this way, as I don't know the file content, so I thought let the file pass to the erb as a object. Then inside the view, I will read the lines. Now point is, I need to close the file. If I put @logfile.close
