@@ -1,8 +1,8 @@
 
-this repo github rubyschool-us:
+this folder github rubyschool-us:
 git clone https://github.com/rubyschool-us/sinatra-bootstrap-clean.git
 
-this repo cleaned github bootstrap-ruby: 
+this folder cleaned github bootstrap-ruby: 
 Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
 
 Урок 22
