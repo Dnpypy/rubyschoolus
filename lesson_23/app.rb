@@ -17,38 +17,11 @@ end
 
 post "/visit" do
 	
-	@barber   = params[:barber]
 	@login    = params[:login]
-	@mail     = params[:mail]
 	@phone    = params[:phone]
 	@datetime = params[:datetime]
+	@barber   = params[:barber]
 
-	if @login == ""
-		@check_user = "Введите пользователя!" 
-		erb :visit
-	
-	elsif @mail == "" 
-		@check_mail = "Введите почту!" 
-		erb :visit
-	
-	elsif @phone == ""
-		@check_phone = "Введите телефон!" 
-		erb :visit
-	
-	elsif @datetime == ""
-		@check_date = "Введиту дату прибытия!" 
-		erb :visit
-	
-	else
-		@message = "barber: #{@barber}, login: #{@login}, mail: #{@mail}, phone: #{@phone}, datetime: #{@datetime}"
-
-		File.open("./public/users.txt", "a") do |file|
-			file.puts @message
-		end
-
-		@welcome = "Вы успешно записались!"
-		erb :complete
-	end
-
+	erb "ok this is username: #{@login}, #{@phone}, #{@datetime}, #{@barber}"
 end
 
