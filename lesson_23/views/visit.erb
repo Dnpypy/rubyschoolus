@@ -16,7 +16,7 @@
 		<br />
 		<br>
 	    <label >Пользователь</label>
-	    <input name="login" type="text" class="form-control center-block" placeholder="Введите имя пользователя">
+	    <input id="sss" name="login" type="text" class="form-control center-block" placeholder="Введите имя пользователя">
 	</div>
 	  	
 	  <div class="form-group" >
@@ -26,18 +26,18 @@
 
 	<div class="form-group" >
 	    <label >Телефон</label>
-	    <input name="phone" type="text" class="form-control center-block" placeholder="Введите телефон" >
+	    <input  name="phone" type="text" class="form-control center-block ccc" placeholder="Введите телефон" >
 	</div>
 	
 	<div class="form-group" >
 	    <label >Когда Вас ждать?</label>
-	    <input name="datetime" type="date" class="form-control center-block" placeholder="Введите дату и время" >
+	    <input id="aaa" name="datetime" type="date" class="form-control center-block" placeholder="Введите дату и время" >
 	</div>
 
 	<div class="form-group" >
 	  <label >Ваш парихмахер</label>
 		
-		<select name="barber"> 
+		<select  name="barber" class="ccc"> 
 			<option>Walter White</option>
   			<option>Jessie Pinkman</option>
   			<option>Gus Fring</option><br />
@@ -48,6 +48,15 @@
 
 	</form>
 
+	<script type="text/javascript">
+		$("#aaa").css("background-color", "yellow");
+		$("#sss").css("background-color", "green");
+		$(".ccc").css("background-color", "green");
+	</script>
+
+
 </body>
 
 </html>
+
+
