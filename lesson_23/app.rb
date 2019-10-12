@@ -22,6 +22,8 @@ post "/visit" do
 	@datetime = params[:datetime]
 	@barber   = params[:barber]
 
-	erb "ok this is username: #{@login}, #{@phone}, #{@datetime}, #{@barber}"
+	@color_choice = params[:color_choice]
+
+	erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
 end
 
