@@ -1,0 +1,4 @@
+username:ball1981, pass:sdgsdg, mail:sdgsg@sdgsdg.ru, datetime: 23122020, color_choice: #7ae7bf
+username:admin, pass:sdgsdg, mail:admin@admin.ru, datetime: 23122020, color_choice: #fbd75b
+username:ball1981, pass:sasdg, mail:sdgsg@sdgsdg.ru, datetime: 23122020, color_choice: #46d6db
+username:afasf, pass:sdgsdg, mail:sdgsg@sdgsdg.ru, datetime: 23122020, color_choice: #dc2127

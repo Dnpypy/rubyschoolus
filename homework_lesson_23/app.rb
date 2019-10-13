@@ -27,9 +27,26 @@ end
 
 post "/visit" do
 
-	@login = params[:login]
+	@login    = params[:login]
+	@pass     = params[:pass]
+	@mail     = params[:mail]
+	@datetime = params[:datetime]
+	@color    = params[:color]
 
-	erb "ok this is username:username"
+	# erb "ok this is username:#{@login}, pass:#{@pass}, 
+	# mail:#{@mail}, datetime: #{@datetime}, color_choice: #{@color}"
+
+	@message = "username:#{@login}, pass:#{@pass}, mail:#{@mail}, datetime: #{@datetime}, color_choice: #{@color}"
+
+	# unless File.include?("./public/users.txt")
+
+	File.open("./public/users.txt", "a") do |file|
+		file.puts @message		
+	end
+	# end
+	# erb "Complete write!"
+	erb :visit
+
 end
 
 
