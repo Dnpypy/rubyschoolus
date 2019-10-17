@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<form  action="/visit" method="POST">
+	<h2>Записаться</h2>
+	<p>На этой странице вы можете записаться в Barbershop</p>
+
+	<div class="form-group">
+		
+		<br>
+		<br />
+		<br>
+	    <label >Пользователь</label>
+	    <input id="sss" name="login" type="text" class="form-control center-block" placeholder="Введите имя пользователя">
+	</div>
+	  	
+	  <div class="form-group" >
+	    <label >Почта</label>
+	    <input name="mail" type="email" class="form-control center-block"  aria-describedby="emailHelp" placeholder="Введите почту" >
+	  </div>
+
+	<div class="form-group" >
+	    <label >Телефон</label>
+	    <input  name="phone" type="text" class="form-control center-block ccc" placeholder="Введите телефон" >
+	</div>
+	
+	<div class="form-group" >
+	    <label >Когда Вас ждать?</label>
+	    <input id="aaa" name="datetime" type="date" class="form-control center-block" placeholder="Введите дату и время" >
+	</div>
+
+	<div class="form-group" >
+	  <label >Ваш парихмахер</label>
+		
+		<select  name="barber" class="ccc"> 
+			<option>Walter White</option>
+  			<option>Jessie Pinkman</option>
+  			<option>Gus Fring</option><br />
+		</select>
+	</div>
+
+
+	<!-- <div class="form-group"> -->
+		<label >В какие цвета хотите себя окрасить:</label>
+	    
+	<!-- </div> -->
+
+	<select name="color_choice" id="color">
+		<option value="#7bd148">Green</option>
+		<option value="#5484ed">Bold blue</option>
+		<option value="#a4bdfc">Blue</option>
+		<option value="#46d6db">Turquoise</option>
+		<option value="#7ae7bf">Light green</option>
+		<option value="#51b749">Bold green</option>
+		<option value="#fbd75b">Yellow</option>
+		<option value="#ffb878">Orange</option>
+		<option value="#ff887c">Red</option>
+		<option value="#dc2127">Bold red</option>
+		<option value="#dbadff">Purple</option>
+		<option value="#e1e1e1">Gray</option>
+	</select>
+	<br>
+	<br>
+	<button type="submit" class="btn btn-success">Записаться</button>
+
+	</form>
+	
+
+
+	<script type="text/javascript">
+
+	$(function(){	
+		$("#aaa").css("background-color", "yellow");
+		$("#sss").css("background-color", "green");
+		$(".ccc").css("background-color", "green");
+		$('#color').simplecolorpicker();
+	});
+	
+	</script>
+
+
+</body>
+
+</html>
+
+
