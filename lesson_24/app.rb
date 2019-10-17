@@ -8,13 +8,13 @@ get '/' do
 end
 
 get "/about" do
+	# @error = "something wrong"
 	erb :about
 end
 
 get "/something" do
 	erb :something
 end
-
 
 get "/contacts" do
 	erb :contacts
@@ -30,9 +30,15 @@ post "/visit" do
 	@phone    = params[:phone]
 	@datetime = params[:datetime]
 	@barber   = params[:barber]
-
 	@color_choice = params[:color_choice]
 
-	erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
+	if @login == ""
+		@error = "Введите имя"
+		erb :visit  # or return visit
+	else
+		erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
+
+	end
+
 end
 
