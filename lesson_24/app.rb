@@ -30,7 +30,7 @@ post "/visit" do
 	@mail         = params[:mail]
 	@phone        = params[:phone]
 	@datetime     = params[:datetime]
-	
+
 	@barber       = params[:barber]
 	@color_choice = params[:color_choice]
 
@@ -41,38 +41,29 @@ post "/visit" do
 		   :datetime => "Введите дату и время"
 		 }
 
-	# для каждой пары ключ значение
-    hh.each do |key, value|
+	# # для каждой пары ключ значение
+ #    hh.each do |key, value|
     	
-    	# key == :login , key == :phone и т.д.
-    	# если параметр пуст
-    	if params[key] == ""
-    		# переменной error присвоить значение value из хэша hh
-    		# а value из хэша hh сообщение об ошибке
-    		# т.е. переменной error присвоить сообщение об ошибке
-    		@error = hh[key]
-    		# вернуть представление visit
-    		return erb :visit
-		end
-	end
+ #    	# key == :login , key == :phone и т.д.
+ #    	# если параметр пуст
+ #    	if params[key] == ""
+ #    		# переменной error присвоить значение value из хэша hh
+ #    		# а value из хэша hh сообщение об ошибке
+ #    		# т.е. переменной error присвоить сообщение об ошибке
+ #    		@error = hh[key]
+ #    		# вернуть представление visit
+ #    		return erb :visit
+	# 	end
+	# end
 		
-	# if @login == ""
-	# 	@error = "Введите имя"
-	# 	# erb :visit  # or return visit
-	# end
+	# выводит если не ввезти пару параметров
+	# Для получения отдельно массива ключей или значений существуют методы .keys и .values.
+	# .join соединяем их через запятую ", "
+	@error = hh.select { |key, _| params[key] == ""}.values.join(", ")
 
-	# if @phone == ""
-	# 	@error = "Введите телефон"
-	# 	# erb :visit  # or return visit
-	# end
-
-	# if @datetime == ""
-	# 	@error = "Неправильная дата и время"
-	# end
-
-	# if @error != ""
-	# 	erb :visit  # or return visit
-	# end
+	if @error != ""
+		return erb :visit
+	end
 
 	erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
 
