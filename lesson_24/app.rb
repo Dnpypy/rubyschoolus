@@ -34,11 +34,23 @@ post "/visit" do
 
 	if @login == ""
 		@error = "Введите имя"
-		erb :visit  # or return visit
-	else
-		erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
-
+		# erb :visit  # or return visit
 	end
+
+	if @phone == ""
+		@error = "Введите почту"
+		# erb :visit  # or return visit
+	end
+
+	if @datetime == ""
+		@error = "Неправильная дата и время"
+	end
+
+	if @error != ""
+		erb :visit  # or return visit
+	end
+
+	erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
 
 end
 
