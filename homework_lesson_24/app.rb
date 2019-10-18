@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-require "pony"
+# require "pony"
 
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
@@ -31,13 +31,6 @@ post "/contacts" do
 	              :mail    => "Введите почту @",
 	              :message => "Вы не ввели сообщение!" }
 
-	# data_info.each do |key, value|
-
-	# 	if params[key] == ""
-	# 		@error = data_info[key]
-	# 		return erb :contacts
-	# 	end
-	# end 
 
 	@error = data_info.select { |key, _| params[key] == ""}.values.join(", ")
 
@@ -45,8 +38,15 @@ post "/contacts" do
 		return erb :contacts
 	end
 
+	# Pony.mail(:to => '*denlat1981@gmail.com*', :from => "#{@mail}", :subject => "art inquiry from #{@login}", :body => "#{@message}")
+
+	Pony.mail(to: "denlat1981@gmail.com", 
+          from:     params[:login],
+          reply_to: params[:email],
+          subject:  "Message for #{params[:message]}",
+          body:     params[:message])
+
 	erb "ok this is username: #{@login}, #{@mail}, #{@message}"
 
 
-	# erb :contacts
 end
