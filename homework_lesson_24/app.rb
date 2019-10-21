@@ -23,24 +23,22 @@ get "/contacts" do
 end
 
 get "/about" do
-	erb "О нас"
+	erb "About"
 end
 
 get "/something" do
-	erb "<h1>Что-то</h1>"
+	erb "<h1>Something...</h1>"
 end
 
 post "/contacts" do
 
-	@login   = params[:login]
-	@mail    = params[:mail]
-	@message = params[:message]
+	login   = params[:login]
+	# @mail    = params[:mail]
+	message = params[:message]
 
-
-	data_info = { :login   => "Введите логин",
-	              :mail    => "Введите почту @",
-	              :message => "Вы не ввели сообщение!" }
-
+	data_info = { :login   => "Enter login...",
+	              :mail    => "Enter mail...",
+	              :message => "You didn't enter a message!" }
 
 	@error = data_info.select { |key, _| params[key] == ""}.values.join(", ")
 
@@ -48,25 +46,23 @@ post "/contacts" do
 		return erb :contacts
 	end
 
-
 Pony.mail({
-	       :to      => 'test.test5847@gmail.com',
-		   :from    => "#{@mail}",
-		   :via     => :smtp,
-		   :subject => "Новое сообщение от пользователя #{@login}",
-		   :body    => "#{@message}",
-		   
-		    :via_options => {
-		    
-		    :address              => 'smtp.gmail.com',
-		    :port                 => '587',
-		    :enable_starttls_auto => true,
-		    :user_name            => 'testing879456',
-		    :password             => 'ZM542352soJPD9Ayr',
-		    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-		    :domain               => "localhost" # the HELO domain provided by the client to the server
-		  }
-		})
-		  erb :contacts
+  :to => '***1***@gmail.com',    # real mail 1
+  :from => '***2***@gmail.com',  # real mail 2
+  :via => :smtp,
+  :subject => "New message from user: #{login}",
+  :body => "#{message}",
 
+  :via_options => {
+    :address              => 'smtp.gmail.com',
+    :port                 => '587',
+    :enable_starttls_auto => true,
+    :user_name            => '***2***@gmail.com', # real mail 2
+    :password             => '**********',
+    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    :domain               => "gmail.com" # the HELO domain provided by the client to the server
+    # :openssl_verify_mode => 'none' 
+  }
+})
+  erb :contacts
 end
