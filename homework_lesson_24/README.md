@@ -9,7 +9,7 @@ this folder cleaned github bootstrap-ruby:
 Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
 
 	
-    edit GEMFILE                     # gem 'sinatra-contrib' # To work reloader
+    edit GEMFILE                     # gem 'sinatra-contrib' # Work reloader
 
     bundle install                   # To install sinatra bundle
 
