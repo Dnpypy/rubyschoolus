@@ -13,5 +13,5 @@ Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
 
     bundle install                   # To install sinatra bundle
 
-    start bundle exec ruby app.rb    # To run the sample cmd window
+    start bundle exec ruby app.rb    # To run the sample 
 
