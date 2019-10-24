@@ -9,7 +9,7 @@ db = SQLite3::Database.new 'barbershop.db'
 
 unless File.zero?('barbershop.db')
 
-  db.execute "SELECT * FROM 'Barbershop'" do |shop|
+  db.execute "SELECT * FROM 'Users'" do |shop|
     puts shop
     puts "======"
   end
@@ -21,18 +21,18 @@ unless File.zero?('barbershop.db')
 
 else
   
-  # Barbershop table 
-   db.execute " CREATE TABLE 'Barbershop' ('Id' INTEGER PRIMARY KEY AUTOINCREMENT,
+  # Users table 
+   db.execute " CREATE TABLE 'Users' ('Id' INTEGER PRIMARY KEY AUTOINCREMENT,
   'Name' VARCHAR, 'Phone' INTEGER, 'DateStamp' VARCHAR, 'Barber' VARCHAR,
   'Color' VARCHAR)"
 
-  db.execute "INSERT INTO Barbershop (Name, Phone, Datestamp, Barber, Color)
+  db.execute "INSERT INTO Users (Name, Phone, Datestamp, Barber, Color)
   VALUES ('Miladin', 777-66-77, 21102020, 'Alex', 'Red')"
 
-  db.execute "INSERT INTO Barbershop (Name, Phone, Datestamp, Barber, Color)
+  db.execute "INSERT INTO Users (Name, Phone, Datestamp, Barber, Color)
   VALUES ('Yasmina', 777-66-77, 21112022, 'John', 'Yellow')"
   
-   db.execute "INSERT INTO Barbershop (Name, Phone, Datestamp, Barber, Color)
+   db.execute "INSERT INTO Users (Name, Phone, Datestamp, Barber, Color)
   VALUES ('Sasha', 777-66-77, 21122022, 'Lexx', 'Green')"
  
   # contacts table
