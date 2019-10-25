@@ -1,4 +1,4 @@
-sinatra-bootstrap-clean
+Barbarshop
 =======================
 
 this folder github rubyschool-us:
