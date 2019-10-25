@@ -1,4 +1,4 @@
-Barbershop.
+Barbershop..
 =======================
 
 this folder github rubyschool-us:
