@@ -5,21 +5,20 @@
 </head>
 <body>
 
-
 <form  action="/visit" method="POST">
 	<h2>Записаться</h2>
 	<p>На этой странице вы можете записаться в Barbershop</p>
 
 	<div class="form-group">
-		
+
 		<br>
 		<br />
 		<br>
 	    <label >Пользователь</label>
-	    <input id="sss" name="login" type="text" 
+	    <input id="sss" name="login" type="text"
 	    value="<%= @login %>" class="form-control center-block" placeholder="Введите имя пользователя">
 	</div>
-	  	
+
 	  <div class="form-group" >
 	    <label >Почта</label>
 	    <input name="mail" type="email" value="<%= @mail %>" class="form-control center-block"  aria-describedby="emailHelp" placeholder="Введите почту" >
@@ -29,27 +28,27 @@
 	    <label >Телефон</label>
 	    <input  name="phone" type="text" value="<%= @phone %>" class="form-control center-block ccc" placeholder="Введите телефон" >
 	</div>
-	
+
 	<div class="form-group" >
 	    <label >Когда Вас ждать?</label>
-	    <input id="aaa" name="datetime" type="date" 
+	    <input id="aaa" name="datetime" type="date"
 	    value="<%= @datetime %>"class="form-control center-block" placeholder="Введите дату и время" >
 	</div>
 
 	<div class="form-group" >
 	  <label >Ваш парихмахер</label>
-		
-		<select  name="barber" class="ccc"> 
-			<option>Walter White</option>
-  			<option>Jessie Pinkman</option>
-  			<option>Gus Fring</option><br />
+
+		<select  name="barber" class="ccc">
+		  	<option <%= @barber== "Walter White" ? "selected" : ""%>   >Walter White</option>
+  			<option <%= @barber== "Jessie Pinkman" ? "selected" : ""%> >Jessie Pinkman</option>
+  			<option <%= @barber== "Gus Fring" ? "selected" : ""%>      >Gus Fring</option><br />
 		</select>
 	</div>
 
 
 	<!-- <div class="form-group"> -->
 		<label >В какие цвета хотите себя окрасить:</label>
-	    
+
 	<!-- </div> -->
 
 	<select name="color_choice" id="color">
@@ -71,23 +70,21 @@
 	<button type="submit" class="btn btn-success">Записаться</button>
 
 	</form>
-	
+
 
 
 	<script type="text/javascript">
 
-	$(function(){	
+	$(function(){
 		// $("#aaa").css("background-color", "yellow");
 		// $("#sss").css("background-color", "green");
 		// $(".ccc").css("background-color", "green");
 		$('#color').simplecolorpicker();
 	});
-	
+
 	</script>
 
 
 </body>
 
 </html>
-
-
