@@ -27,9 +27,10 @@ end
 post "/visit" do
 
 	@login        = params[:login]
-	@mail         = params[:mail]
 	@phone        = params[:phone]
 	@datetime     = params[:datetime]
+	@mail         = params[:mail]
+
 
 	@barber       = params[:barber]
 	@color_choice = params[:color_choice]
