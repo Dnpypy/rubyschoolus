@@ -3,6 +3,25 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 
+# подгружаем базу данных
+require 'sqlite3'
+
+# инициализация приложения(базы данных) при старте
+# если файла barbershop.db нет, он будет создан в тек. каталоге приложения
+configure do
+		@db = SQLite3::Database.new 'barbershop.db'
+		@db.execute 'CREATE TABLE IF NOT EXISTS
+								"Users"
+								(
+									"Id" INTEGER PRIMARY KEY AUTOINCREMENT,
+									"login" TEXT,
+									"phone" TEXT,
+									"datestamp" TEXT,
+									"barber" TEXT,
+									"color_choice" TEXT
+								)'
+end
+
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"
 end
@@ -29,9 +48,7 @@ post "/visit" do
 	@login        = params[:login]
 	@phone        = params[:phone]
 	@datetime     = params[:datetime]
-	@mail         = params[:mail]
-
-
+	# @mail         = params[:mail]
 	@barber       = params[:barber]
 	@color_choice = params[:color_choice]
 
