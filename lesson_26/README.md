@@ -14,3 +14,6 @@ Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
     bundle install                   # To install sinatra bundle
 
     bundle exec ruby app.rb    # To run the sample cmd window
+
+    did not work datetimepicker, took from here the public folder to work:
+    https://github.com/rubyschool-us/rubyschool-barbershop-hq
