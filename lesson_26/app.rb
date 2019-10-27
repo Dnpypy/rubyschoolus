@@ -6,19 +6,24 @@ require 'sinatra/reloader'
 # подгружаем базу данных
 require 'sqlite3'
 
+def get_db
+		return SQLite3::Database.new 'barbershop.db'
+end
+
 # инициализация приложения(базы данных) при старте
 # если файла barbershop.db нет, он будет создан в тек. каталоге приложения
 configure do
-		@db = SQLite3::Database.new 'barbershop.db'
-		@db.execute 'CREATE TABLE IF NOT EXISTS
+		# @db = SQLite3::Database.new 'barbershop.db'
+		db = get_db
+		db.execute 'CREATE TABLE IF NOT EXISTS
 								"Users"
 								(
 									"Id" INTEGER PRIMARY KEY AUTOINCREMENT,
-									"login" TEXT,
+									"username" TEXT,
 									"phone" TEXT,
 									"datestamp" TEXT,
 									"barber" TEXT,
-									"color_choice" TEXT
+									"color" TEXT
 								)'
 end
 
@@ -45,15 +50,15 @@ end
 
 post "/visit" do
 
-	@login        = params[:login]
+	@username     = params[:username]
 	@phone        = params[:phone]
 	@datetime     = params[:datetime]
 	# @mail         = params[:mail]
 	@barber       = params[:barber]
-	@color_choice = params[:color_choice]
+	@color        = params[:color]
 
 	# хэш
-	hh = {    :login => "Введите имя",
+	hh = {    :username => "Введите имя",
 	           :mail => "Введите почту @",
 		      :phone => "Введите телефон",
 		   :datetime => "Введите дату и время"
@@ -66,8 +71,20 @@ post "/visit" do
 		return erb :visit
 	end
 
-	erb "ok this is username: #{@color_choice}, #{@login}, #{@phone}, #{@datetime}, #{@barber}"
+	db = get_db
+	db.execute 'insert into
+							Users
+							(
+								username,
+								phone,
+								datestamp,
+								barber,
+								color
+							)
+
+			values(?, ?, ?, ?, ?)',[@username, @phone, @datetime, @barber, @color]
 
 
+	erb "ok this is username: #{@color_choice}, #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 
 end
