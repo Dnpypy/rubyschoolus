@@ -2,8 +2,20 @@
 <html>
 <head>
 	<title></title>
+
 </head>
+
 <body>
+
+
+<script type="text/javascript">
+
+	$(function(){
+			$('#color').simplecolorpicker();
+			jQuery('#datetimepicker').datetimepicker();
+	});
+	
+</script>
 
 <form  action="/visit" method="POST">
 	<h2>Записаться</h2>
@@ -15,7 +27,7 @@
 		<br />
 		<br>
 	    <label >Пользователь</label>
-	    <input id="sss" name="username" type="text"
+	    <input name="username" type="text"
 	    value="<%= @login %>" class="form-control center-block" placeholder="Введите имя пользователя">
 	</div>
 
@@ -31,8 +43,8 @@
 
 	<div class="form-group" >
 	    <label >Когда Вас ждать?</label>
-	    <input id="aaa" name="datetime" type="date"
-	    value="<%= @datetime %>"class="form-control center-block" placeholder="Введите дату и время" >
+	    <input id="datetimepicker" name="datetime" type="text"
+	    value="<%= @datetime %>" class="form-control center-block" placeholder="Введите дату и время" >
 	</div>
 
 	<div class="form-group" >
@@ -74,16 +86,7 @@
 
 
 
-	<script type="text/javascript">
 
-	$(function(){
-		// $("#aaa").css("background-color", "yellow");
-		// $("#sss").css("background-color", "green");
-		// $(".ccc").css("background-color", "green");
-		$('#color').simplecolorpicker();
-	});
-
-	</script>
 
 
 </body>
