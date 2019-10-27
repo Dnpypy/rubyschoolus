@@ -3,7 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 
-# подгружаем базу данных
+# подгружаем библиотеку sqlite3
 require 'sqlite3'
 
 def get_db
