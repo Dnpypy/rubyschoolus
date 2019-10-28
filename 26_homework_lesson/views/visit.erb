@@ -19,13 +19,14 @@
 
 <form  action="/visit" method="POST">
 	<h2>Записаться</h2>
-	<p>На этой странице вы можете записаться в Barbershop</p>
+	<p><%= @title %></p>
 
 	<div class="form-group">
 
 		<br>
 		<br />
 		<br>
+		<p><%= @error %></p>
 	    <label >Пользователь</label>
 	    <input name="username" type="text"
 	    value="<%= @login %>" class="form-control center-block" placeholder="Введите имя пользователя">
@@ -51,11 +52,13 @@
 	<div class="form-group" >
 	  <label >Ваш парихмахер</label>
 
-		<select  name="barber" >
-		  	<option <%= @barber== "Walter White" ? "selected" : ""%>   >Walter White</option>
-  			<option <%= @barber== "Jessie Pinkman" ? "selected" : ""%> >Jessie Pinkman</option>
-  			<option <%= @barber== "Gus Fring" ? "selected" : ""%>      >Gus Fring</option><br />
-		</select>
+
+		<select name="barber">
+	    <option value="<%= @barber %>" selected>Выбрать опцию...</option>
+	    <% @barbers.each do |item| %>
+	    <option value="<%= item['barber'] %>"><%= item['barber'] %></option>
+	    <% end %>
+  	</select>
 	</div>
 
 

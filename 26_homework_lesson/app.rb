@@ -6,18 +6,44 @@ require 'sinatra/reloader'
 # подгружаем библиотеку sqlite3
 require 'sqlite3'
 
+# configure - при запуске программы
+# before - при каждом обращении к программе
+
+# Синтаксис before (в sinatra) - исполняет код
+#  перед запросом - будет доступно во всех представлениях
+before do
+end
+
+# создаем базу в файле barbershop.db
 def get_db
 		@db = SQLite3::Database.new 'barbershop.db'
 		@db.results_as_hash = true
 		return @db
 end
 
+# Method validation data Options table in database
+def is_option_exists? base, param
+  base.execute('SELECT * FROM Barbers WHERE barber=?', [param]).length > 0
+end
+
+# Method add data to table in database
+def seed_db base, options
+  options.each do |option|
+    if !is_option_exists? @db, option
+      base.execute 'INSERT INTO Barbers (barber) VALUES (?)', [option]
+    end
+  end
+end
+
+
 # инициализация приложения(базы данных) при старте
 # если файла barbershop.db нет, он будет создан в тек. каталоге приложения
 configure do
 		# @db = SQLite3::Database.new 'barbershop.db'
-		db = get_db
-		db.execute 'CREATE TABLE IF NOT EXISTS
+		# db = get_db
+		get_db
+		# создаем таблицы "Users", "Barbers"
+		@db.execute 'CREATE TABLE IF NOT EXISTS
 								"Users"
 								(
 									"Id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,6 +53,15 @@ configure do
 									"barber" TEXT,
 									"color" TEXT
 								)'
+		@db.execute 'CREATE TABLE IF NOT EXISTS
+								"Barbers"
+								(
+									"Id" INTEGER PRIMARY KEY AUTOINCREMENT,
+									"barber" TEXT
+								)'
+		seed_db @db, ['Foo', 'Faa', 'Moo', 'Zoo', 'Faz', 'Maz', 'Kraz']
+
+	   @db.close
 end
 
 get '/' do
@@ -34,7 +69,6 @@ get '/' do
 end
 
 get "/about" do
-	# @error = "something wrong"
 	erb :about
 end
 
@@ -47,7 +81,15 @@ get "/contacts" do
 end
 
 get "/visit" do
+	# Write to array data from database table Options
+	 get_db
+	 @barbers = @db.execute 'SELECT * FROM Barbers'
+	 @db.close
+
+	 @title = "Форма заявки для Sinatra (Ruby)"
+
 	erb :visit
+
 end
 
 post "/visit" do
@@ -63,7 +105,8 @@ post "/visit" do
 	hh = {    :username => "Введите имя",
 	              :mail => "Введите почту @",
 		           :phone => "Введите телефон",
-		        :datetime => "Введите дату и время"
+		        :datetime => "Введите дату и время",
+						:barber   => "Выберите парикмахера"
 		 }
 
 
@@ -73,8 +116,8 @@ post "/visit" do
 		return erb :visit
 	end
 
-	db = get_db
-	db.execute 'insert into
+	@db = get_db
+	@db.execute 'insert into
 							Users
 							(
 								username,
@@ -86,6 +129,14 @@ post "/visit" do
 
 			values(?, ?, ?, ?, ?)',[@username, @phone, @datetime, @barber, @color]
 
+	@db.execute 'insert into
+							Barbers
+							(
+								barber
+							)
+
+			values(?)',[@barber]
+
 
 	erb "ok this is username: #{@color_choice}, #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 
@@ -96,11 +147,7 @@ get '/admin/show' do
 	# Выбирает (SELECT) ВСЕ записи из (FROM) таблицы tbl_name
 	# и сортирует их (ORDER BY) по полю id в ОБРАТНОМ порядке.
 	@results = @db.execute 'SELECT * FROM Users ORDER BY id DESC'
+	@db.close
 
   erb :show
 end
-
-# post '/admin/show' do
-#
-#
-# end
