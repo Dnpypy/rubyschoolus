@@ -59,9 +59,9 @@ post "/visit" do
 
 	# хэш
 	hh = {    :username => "Введите имя",
-	           :mail => "Введите почту @",
-		      :phone => "Введите телефон",
-		   :datetime => "Введите дату и время"
+	              :mail => "Введите почту @",
+		           :phone => "Введите телефон",
+		        :datetime => "Введите дату и время"
 		 }
 
 
@@ -87,4 +87,8 @@ post "/visit" do
 
 	erb "ok this is username: #{@color_choice}, #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 
+end
+
+get '/showusers' do
+  erb "Hello World"
 end
