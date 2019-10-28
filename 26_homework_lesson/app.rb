@@ -7,9 +7,9 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 def get_db
-		db = SQLite3::Database.new 'barbershop.db'
-		db.results_as_hash = true
-		return db
+		@db = SQLite3::Database.new 'barbershop.db'
+		@db.results_as_hash = true
+		return @db
 end
 
 # инициализация приложения(базы данных) при старте
@@ -91,6 +91,16 @@ post "/visit" do
 
 end
 
-get '/showusers' do
-  erb "Hello World"
+get '/admin/show' do
+	get_db
+	# Выбирает (SELECT) ВСЕ записи из (FROM) таблицы tbl_name
+	# и сортирует их (ORDER BY) по полю id в ОБРАТНОМ порядке.
+	@results = @db.execute 'SELECT * FROM Users ORDER BY id DESC'
+
+  erb :show
 end
+
+# post '/admin/show' do
+#
+#
+# end
