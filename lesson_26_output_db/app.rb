@@ -16,7 +16,7 @@ db.execute 'select * from Users' do |row|
       # обращение по ключу row['name']
       puts row['username']
       print "\t\t"
-      # обращение по ключу row['datestamp']
+      # обращение по ключу row['datestamp'  ]
       puts row['datestamp']
       puts '=========='
 end
