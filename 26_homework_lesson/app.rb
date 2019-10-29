@@ -89,10 +89,6 @@ get "/contacts" do
 end
 
 get "/visit" do
-	# Write to array data from database table Options
-	 # get_db
-	 # @barbers = @db.execute 'SELECT * FROM Barbers'
-	 # @db.close
 
 	 @title = "Форма заявки для Sinatra (Ruby)"
 
