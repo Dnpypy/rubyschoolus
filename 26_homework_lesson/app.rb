@@ -150,7 +150,7 @@ post "/visit" do
 
 end
 
-get '/admin/show' do
+get '/showusers' do
 	# получаем объект базы данных
 	@db = get_db
 	# Выбирает (SELECT) ВСЕ записи из (FROM) таблицы tbl_name
@@ -158,5 +158,5 @@ get '/admin/show' do
 	@results = @db.execute 'SELECT * FROM Users ORDER BY id DESC'
 	@db.close
 
-  erb :show
+  erb :showusers
 end

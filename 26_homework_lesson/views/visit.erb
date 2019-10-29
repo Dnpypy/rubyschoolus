@@ -54,12 +54,17 @@
 
 
 		<select name="barber">
+
 	    <option value="<%= @barber %>" selected>Выбрать опцию...</option>
-	    <% @barbers.each do |item| %>
+
+			<% @barbers.each do |item| %>
 	    <option value="<%= item['barber'] %>"><%= item['barber'] %></option>
 	    <% end %>
-  	</select>
+
+		</select>
+
 	</div>
+
 
 
 	<!-- <div class="form-group"> -->
