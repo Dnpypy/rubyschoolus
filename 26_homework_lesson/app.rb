@@ -6,6 +6,18 @@ require 'sinatra/reloader'
 # подгружаем библиотеку sqlite3
 require 'sqlite3'
 
+# configure - при запуске программы
+# before - при каждом обращении к программе
+
+# Синтаксис before (в sinatra) - исполняет код
+#  перед запросом - будет доступно во всех представлениях
+before do
+		# Write to array data from database table Options
+		get_db
+		@barbers = @db.execute 'SELECT * FROM Barbers'
+		# @db.close
+end
+
 # Method validation data Options table in database
 def is_barber_exists? base, param
 	# 1 часть выражения base.execute()
@@ -32,20 +44,12 @@ def get_db
 		return @db
 end
 
-# configure - при запуске программы
-# before - при каждом обращении к программе
 
-# Синтаксис before (в sinatra) - исполняет код
-#  перед запросом - будет доступно во всех представлениях
-# @barbers будет во всех представлениях
-before do
-	db = get_db
-	@barbers = @db.execute 'SELECT * FROM Barbers'
-end
 
 # инициализация приложения(базы данных) при старте
 # если файла barbershop.db нет, он будет создан в тек. каталоге приложения
 configure do
+
 		# @db = SQLite3::Database.new 'barbershop.db'
 		# db = get_db
 		get_db
@@ -67,7 +71,7 @@ configure do
 									"barber" TEXT
 								)'
 		# наполнение
-		seed_db @db, ['Foo', 'Faa', 'Moo', 'Zoo', 'Faz', 'Maz', 'Kraz']
+		seed_db @db, ['John', 'Marta', 'Maria', 'Miladin']
 
 	   @db.close
 end
@@ -89,6 +93,7 @@ get "/contacts" do
 end
 
 get "/visit" do
+
 
 	 @title = "Форма заявки для Sinatra (Ruby)"
 
@@ -133,16 +138,16 @@ post "/visit" do
 
 			values(?, ?, ?, ?, ?)',[@username, @phone, @datetime, @barber, @color]
 
-	@db.execute 'insert into
-							Barbers
-							(
-								barber
-							)
+	# @db.execute 'insert into
+	# 						Barbers
+	# 						(
+	# 							barber
+	# 						)
+	#
+	# 		values(?)',[@barber]
 
-			values(?)',[@barber]
 
-
-	erb "ok this is username: #{@color_choice}, #{@username}, #{@phone}, #{@datetime}, #{@barber}"
+	erb "Спасибо чтовы записались: #{@color_choice}, #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 
 end
 
